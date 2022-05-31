@@ -14,11 +14,10 @@
   </style>
 </head>
 <body>
-
   <header>
-    <img src="/images/bg-mobile-light.jpg" alt="">
+    <img src="/images/bg-mobile-light.jpg" alt="background image" class="header-background">
   </header>
-  <div>
+  <div class="container">
     <nav>
       <h1>TODO</h1>
       <button type="button" id="theme-switcher">
@@ -30,49 +29,57 @@
         <span class="check-box">
           <img src="images/icon-check.svg" alt="">
         </span>
-        <input type="text" name="todo" id="new-todo" placeholder="Create a new todo">
+        <input type="text" name="todo" id="new-todo" placeholder="Create a new todo...">
       </div>
       <ul class="todo-wrapper">
         <li>
-          <span class="check-box">
-            <img src="images/icon-check.svg" alt="">
-          </span>
-          <span class="todo-task">
-            Lorem ipsum dolor sit amet.
-          </span>
+          <div class="items-wrapper">
+            <span class="check-box colored-check">
+              <img src="images/icon-check.svg" alt="">
+            </span>
+            <span class="todo-task  strike">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </div>
           <span class="cross-box">
             <img src="images/icon-cross.svg" alt="">
           </span>
         </li>
         <li>
-          <span class="check-box">
-            <img src="images/icon-check.svg" alt="">
-          </span>
-          <span class="todo-task">
-            Lorem ipsum dolor sit amet.
-          </span>
+          <div class="items-wrapper">
+            <span class="check-box">
+              <!-- <img src="images/icon-check.svg" alt=""> -->
+            </span>
+            <span class="todo-task">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </div>
           <span class="cross-box">
             <img src="images/icon-cross.svg" alt="">
           </span>
         </li>
         <li>
-          <span class="check-box">
-            <img src="images/icon-check.svg" alt="">
-          </span>
-          <span class="todo-task">
-            Lorem ipsum dolor sit.
-          </span>
+          <div class="items-wrapper">
+            <span class="check-box">
+              <!-- <img src="images/icon-check.svg" alt=""> -->
+            </span>
+            <span class="todo-task">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </div>
           <span class="cross-box">
             <img src="images/icon-cross.svg" alt="">
           </span>
         </li>
         <li>
-          <span class="check-box">
-            <img src="images/icon-check.svg" alt="">
-          </span>
-          <span class="todo-task">
-            Lorem ipsum dolor, sit amet consectetur adipisicing.
-          </span>
+          <div class="items-wrapper">
+            <span class="check-box">
+              <!-- <img src="images/icon-check.svg" alt=""> -->
+            </span>
+            <span class="todo-task">
+              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit.
+            </span>
+          </div>
           <span class="cross-box">
             <img src="images/icon-cross.svg" alt="">
           </span>
@@ -87,9 +94,9 @@
         </li>
       </ul>
       <div class="buttons-wrapper">
-        <button type="button">All</button>
-        <button type="button">Active</button>
-        <button type="button">Complete</button>
+        <button type="button" class="active-button">All</button>
+        <button type="button" >Active</button>
+        <button type="button" >Completed</button>
       </div>
       <p>
         Drag and drop to reorder list
