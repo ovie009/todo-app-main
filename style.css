@@ -2,17 +2,29 @@
 
 :root{
     --primary: hsl(220, 98%, 61%);
-    --lightModeElements: hsl(0, 0%, 98%);
-    --lightModeElements: white;
+
+    --lightModeBackground: hsl(0, 0%, 98%);
+    --lightModeElements: hsl(0, 0%, 100%);
     --lightModeOutline: hsl(233, 11%, 84%);
     --lightModeText1: hsl(235, 19%, 35%);
     --lightModeText2: hsl(236, 9%, 61%);
     --lightModetext3: hsl(236, 33%, 92%);
-    /* --lightModebackground: hsl(233, 11%, 84%); */
-    --lightModeBackground: hsl(0, 0%, 98%);
-    --Background: var(--lightModeBackground);
-    --Text: var(--lightModeText);
-    --Outline: var(--lightModeOutline);
+    
+    --darkModeBackground: hsl(235, 21%, 11%);
+    --darkModeElements: hsl(235, 24%, 19%);
+    --darkModeOutline: hsla(233, 11%, 84%, 0.136);
+    --darkModeText1: hsl(234, 39%, 85%);
+    --darkModeText2: hsl(236, 9%, 61%);
+    --darkModetext3: hsl(236, 33%, 92%);
+    
+    
+    --Background: var(--darkModeBackground);
+    --Elements: var(--darkModeElements);
+    --Text1: var(--darkModeText1);
+    --Text2: var(--darkModeText2);
+    --Text3: var(--darkModeText3);
+    --Outline: var(--darkModeOutline);
+    --boxShadow: 0 0 50px 0px rgba(0, 0, 0, 0.1);
 }
 
 *{
@@ -20,7 +32,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: var(--lightModeText1);
+    color: var(--Text1);
 }
 
 body{
@@ -59,7 +71,7 @@ header{
 }
 
 ::placeholder{
-    color: var(--lightModetext2);
+    color: var(--Text2);
 }
 
 nav{
@@ -73,7 +85,7 @@ nav{
 nav h1{
     letter-spacing: 5px;
     font-size: 2em;
-    color: var(--lightModeElements);
+    color: white;
 }
 
 nav > button{
@@ -92,7 +104,7 @@ main{
 .input-wrapper{
     width: 100%;
     height: 55px;
-    background-color: var(--lightModeElements);
+    background-color: var(--Elements);
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -108,23 +120,27 @@ main{
     align-items: center;
     justify-content: center;
     margin: 0;
-    border: 1px solid var(--lightModeOutline);
+    border: 1px solid var(--Outline);
 }
 
 .colored-check{
     background-color: blue;
-    background-image: linear-gradient();
+    background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
 #new-todo{
     border: none;
+    width: calc(100% - 20px);
+    background-color: transparent;
+    padding: 5px;
+    color: var(--Text1);
 }
 
 .todo-wrapper{
-    background-color: var(--lightModeElements);
+    background-color: var(--Elements);
     border-radius: 5px;
     width: 100%;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--boxShadow);
 }
 
 .todo-wrapper > li{
@@ -135,18 +151,18 @@ main{
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    border-bottom: 1px solid var(--lightModeOutline);
+    border-bottom: 1px solid var(--Outline);
 }
 
 .todo-wrapper > li:last-child{
     border-bottom: none;
-    color: var(--lightModeText2);
+    color: var(--Text2);
     font-size: .8em;
 }
 
 .todo-wrapper > li:last-child span{
     border-bottom: none;
-    color: var(--lightModeText2);
+    color: var(--Text2);
     font-size: 1em;
 }
 
@@ -175,14 +191,14 @@ main{
 
 .strike{
     text-decoration: line-through;
-    color: var(--lightModeText3);
+    color: var(--Text2);
 }
 
 .buttons-wrapper{
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--boxShadow);
     width: 100%;
     height: 55px;
-    background-color: var(--lightModeElements);
+    background-color: var(--Elements);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,7 +210,7 @@ main{
     border: none;
     font-weight: 700;
     background-color: transparent;
-    color: var(--lightModeText2);
+    color: var(--Text2);
 }
 
 .buttons-wrapper .active-button{
@@ -203,5 +219,5 @@ main{
 
 main p{
     margin-block: 30px;
-    color: var(--lightModeText2);
+    color: var(--Text2);
 }
