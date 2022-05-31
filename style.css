@@ -20,10 +20,10 @@
     
     --Background: var(--darkModeBackground);
     --Elements: var(--darkModeElements);
+    --Outline: var(--darkModeOutline);
     --Text1: var(--darkModeText1);
     --Text2: var(--darkModeText2);
     --Text3: var(--darkModeText3);
-    --Outline: var(--darkModeOutline);
     --boxShadow: 0 0 50px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -37,6 +37,10 @@
 
 body{
     background-color: var(--Background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .attribution { 
@@ -62,10 +66,10 @@ header{
 
 .container{
     width: 100vw;
-    max-width: 555px;
+    max-width: 600px;
     min-height: 90vh;
     height: fit-content;
-    position: fixed;
+    position: absolute;
     top: 3vh;
     padding: 25px;
 }
@@ -83,14 +87,19 @@ nav{
 }
 
 nav h1{
-    letter-spacing: 5px;
-    font-size: 2em;
+    letter-spacing: 8px;
+    font-size: 1.8em;
     color: white;
 }
 
 nav > button{
     border: 0;
     background-color: transparent;
+    cursor: pointer;
+}
+
+nav > button img{
+    height: 20px;
 }
 
 main{
@@ -134,6 +143,15 @@ main{
     background-color: transparent;
     padding: 5px;
     color: var(--Text1);
+    height: 100%;
+}
+
+#new-todo:focus{
+    outline: none;
+}
+
+button{
+    outline: none;
 }
 
 .todo-wrapper{
@@ -220,4 +238,21 @@ main{
 main p{
     margin-block: 30px;
     color: var(--Text2);
+}
+
+/* change autofill background color */
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  box-shadow: 0 0 0px 1000px var(--Elements) inset;
 }
