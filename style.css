@@ -168,6 +168,8 @@ button{
     border-radius: 5px;
     width: 100%;
     box-shadow: var(--boxShadow);
+    display: flex;
+    flex-flow: column;
 }
 
 .todo-wrapper > li{
@@ -179,16 +181,18 @@ button{
     justify-content: space-between;
     padding: 10px 20px;
     border-bottom: 1px solid var(--Outline);
+    order: 2;
 }
 
-.todo-wrapper > li:last-child{
+.todo-wrapper > li:first-child{
     border-bottom: none;
     color: var(--Text2);
     font-size: .8em;
     font-weight: 600;
+    order: 3;
 }
 
-.todo-wrapper > li:last-child span{
+.todo-wrapper > li:first-child span{
     border-bottom: none;
     color: var(--Text2);
     font-size: 1em;

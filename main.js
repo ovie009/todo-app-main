@@ -1,3 +1,117 @@
+let todo; // array of todo list
+let numberOfTask;
+let fullTask;
+let activeTask;
+let completedTask;
+
+todo = fetch("./todo.json")
+.then(response => {
+   return response.json();
+})
+.then(tasks => {
+    // console.log(tasks[0]);
+    numberOfTask = tasks.length;
+    fullTask = tasks;
+    console.log("🚀 ~ file: main.js ~ line 11 ~ numberOfTask", numberOfTask)
+    activeTask = filterTask('active', tasks);
+    completedTask = filterTask('completed', tasks);
+    sortTasks(tasks);
+    appendList(tasks);
+});
+
+
+function appendList(tasks) {
+    tasks.forEach(task => {
+        let li = document.createElement("li");
+        let div = document.createElement("div");
+        let buttonCheck = document.createElement("button");
+        let buttonText = document.createElement("button");
+        let buttonCross = document.createElement("button");
+        let todo = document.createTextNode(task.task);
+        let cross = document.createElement("img");
+        let ul = document.querySelector(".todo-wrapper");
+        let checkBoxClass = "colored-check";
+        let check = document.createElement("img");
+
+        
+        div.classList.add("items-wrapper");
+        
+        buttonCheck.type = "button";
+        buttonText.type = "button";
+        buttonCross.type = "button";
+        
+        buttonText.id = `todo-${task.id}`;
+        
+        buttonCheck.classList.add("check-box");
+        buttonText.classList.add("todo-task");
+        buttonCross.classList.add("cross-box");
+        
+        li.classList.add("task-list");
+
+        cross.alt = "close list";
+        cross.src = "images/icon-cross.svg";
+        check.alt = "mark list";
+        check.src = "images/icon-check.svg";
+        
+        
+        buttonText.appendChild(todo);
+        
+        buttonCross.appendChild(cross);
+        div.appendChild(buttonCheck);
+        div.appendChild(buttonText);
+        li.appendChild(div);
+        
+        if (task.status === 'completed') {
+            buttonCheck.classList.add(checkBoxClass);
+            buttonText.classList.add("strike");
+            buttonCheck.appendChild(check)
+        }
+
+        console.log(task);
+        li.appendChild(buttonCross);
+        ul.appendChild(li);
+    });
+}
+
+function sortTasks(tasks) {
+    tasks.sort((a, b) => {
+        if (a.status < b.status) return -1;
+        return 1;
+    });
+}
+
+function removeList() {
+    let taskList = document.querySelectorAll(".task-list");
+    console.log(taskList);
+    taskList.forEach(taskItem => {
+        taskItem.remove();
+    });
+}
+
+function filterTask(value, tasks) {
+    // if value is not equal to 'All'
+    if (value !== 'all') {
+        let filteredTasks = tasks.filter(
+            (tasks) => tasks.status == value
+        );
+    
+        // return the filtered array
+        return filteredTasks;
+
+    } else { // if value is equal to 'All', do not filter
+        tasks = fullTask;
+        return tasks;
+    }
+}
+
+function toggleTask(value) {
+    let tasks = fullTask;
+    tasks = filterTask(value, tasks);
+    removeList();
+    appendList(tasks);
+
+}
+
 
 // Get the root element
 var r = document.querySelector(':root'); // css root variable
