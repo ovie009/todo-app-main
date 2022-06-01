@@ -8,33 +8,22 @@ let text1; // css text color varaible
 let text2; // css text color varaible
 let text3; // css text color varaible
 
+let themeIcon = document.querySelector('#theme-icon'); // select theme buttons icon
+let headerImg = document.querySelector('.header-background'); // select header background image
+
 // let themme be equall to dark mode by default
 let theme;
 function switchTheme() {
-    // console.log('Theme Sitching')
-    // select theme buttons
-    let themeButton = $('#theme-switcher');
-    let header = $('header');
     theme = getCookie('theme');
-    // remove children elements in theme button
-    themeButton.empty()
-    header.empty()
+
     if (theme === 'darkMode') { // if its currently on dark mode
         theme = 'lightMode'; // set theme controller variable as 'lightMode'
-        // content to be added to theme button
-        let content = `<img src="images/icon-moon.svg" alt="moon icon">`;
-        let headerbackgroundImage = `<img src="images/bg-mobile-light.jpg" alt="background image" class="header-background">`;
-        // append content to theme button
-        themeButton.append(content);
-        header.append(headerbackgroundImage);
+        themeIcon.src = 'images/icon-moon.svg';
+        headerImg.src = 'images/bg-mobile-light.jpg';
     } else {
         theme = 'darkMode'; // set theme controller variable as 'darkMode'
-        // content to be added to theme button
-        let content = `<img src="images/icon-sun.svg" alt="sun icon">`;
-        // append content to theme button
-        let headerbackgroundImage = `<img src="images/bg-mobile-dark.jpg" alt="background image" class="header-background">`;
-        themeButton.append(content);
-        header.append(headerbackgroundImage);
+        themeIcon.src = 'images/icon-sun.svg';
+        headerImg.src = 'images/bg-mobile-dark.jpg';
     }
     
     setThemeColors(theme);
@@ -131,21 +120,9 @@ function checkCookie() {
     
     // if selected theme color is light mode
     if (theme === 'lightMode') {
-        // set light mode theme switcher buttons
-        // select theme buttons
-        let themeButton = $('#theme-switcher');
-        let header = $('header');
-        theme = getCookie('theme');
-        // // remove children elements in theme button
-        themeButton.empty()
-        header.empty()
-        // // content to be added to theme button
-        let content = `<img src="images/icon-moon.svg" alt="moon icon">`;
-        // // append content to theme button
-        themeButton.append(content);
 
-        let headerbackgroundImage = `<img src="images/bg-mobile-light.jpg" alt="background image" class="header-background">`;
-        header.append(headerbackgroundImage);
+        themeIcon.src = 'images/icon-moon.svg';
+        headerImg.src = 'images/bg-mobile-light.jpg';
     }
 }
 
