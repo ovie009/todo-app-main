@@ -70,8 +70,15 @@ header{
     min-height: 90vh;
     height: fit-content;
     position: absolute;
-    top: 3vh;
+    top: 7.5vh;
     padding: 25px;
+    z-index: 1;
+}
+
+button{
+    background-color: transparent;
+    outline: none;
+    border: none;
 }
 
 ::placeholder{
@@ -119,6 +126,7 @@ main{
     padding: 10px 20px;
     border-radius: 5px;
     gap: 10px;
+    
 }
 
 .check-box{
@@ -152,6 +160,7 @@ main{
 
 button{
     outline: none;
+    cursor: pointer;
 }
 
 .todo-wrapper{
@@ -176,6 +185,7 @@ button{
     border-bottom: none;
     color: var(--Text2);
     font-size: .8em;
+    font-weight: 600;
 }
 
 .todo-wrapper > li:last-child span{
@@ -197,6 +207,13 @@ button{
     line-height: 30px;
     width: calc(100% - 20px);
     font-size: .8em;
+    text-align: left;
+}
+
+.no-items{
+    /* background-color: red; */
+    width: 100%;
+    text-align: center;
 }
 
 .cross-box{
